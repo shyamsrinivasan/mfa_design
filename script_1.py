@@ -8,7 +8,7 @@ import os.path
 
 def calc_sse(val_1, val_2):
     # calculate lsq distance between val_1 and val_2
-    sse_estimate = np.sqrt(np.sum((val_1 - val_2)**2))
+    sse_estimate = np.sqrt(np.sum((abs(val_1) - abs(val_2))**2)/len(val_1))
     return sse_estimate
 
 
