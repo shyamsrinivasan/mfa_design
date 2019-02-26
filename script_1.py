@@ -84,7 +84,12 @@ m.addConstr(quicksum(mut_select) - req_n_mutants, rhs=0, name="c4", sense=GRB.LE
 m.update()
 
 # Save model to file
-m.write("example.lp")
+# m.write("example.lp")
+
+# set initial value of first two mutants to 1
+mut_select[0].start = 1
+mut_select[1].start = 1
+mut_mult[0].start = 1.0
 
 # optimize model
 m.optimize()
