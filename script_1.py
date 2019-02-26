@@ -94,4 +94,32 @@ mut_mult[0].start = 1.0
 # optimize model
 m.optimize()
 
+nnz_mutant = []
+print('\nFinal Solution:\n')
+for i_mutant in range(n_mutants):
+    # print all solutions to screen
+    print('Mutant {} is included {}\n'.format(i_mutant, mut_select[i_mutant].x))
+    # collect all non-zero mutant indices
+    if mut_select[i_mutant].x > 0:
+        nnz_mutant.append(i_mutant)
+
+# collect combos containing nnz_mutants
+considered_combos = [list(map(lambda x: True if i_mutant == x[1] or i_mutant == x[2] else False, cont_index)) for i_mutant in nnz_mutant]
+# actual_combos = []
+# for i_mutant, i_mut_info in enumerate(considered_combos):
+#     for j_combo in cont_index:
+#         if list(i_mut_info)[j_combo[0]] and mut_mult[j_combo[0]].x:
+#             print('Mutant ID: {} Combo ID: {}\n'.format(nnz_mutant[i_mutant], j_combo[0]))
+#             actual_combos.append({'combo_id': j_combo[0], 'mutant_ids': j_combo[1:],
+#                                   'mip_value': mut_mult[j_combo[0]].x})
+actual_combos = [{'combo_id': j_combo[0], 'mutant_ids': j_combo[1:], 'mip_value': mut_mult[j_combo[0]].x}
+                 for i_mutant, i_mut_info in enumerate(considered_combos) for j_combo in cont_index
+                 if list(i_mut_info)[j_combo[0]] and mut_mult[j_combo[0]].x]
+# print all continuous variables - debug only
+print('\n Combinations in Solution:\n')
+for i_combo in cont_index:
+    print('Combination {} - Mutant 1 = {} and Mutant 2 = {} - Included: {}\n'.format(i_combo[0], i_combo[1],
+                                                                                     i_combo[2],
+                                                                                     mut_mult[i_combo[0]].x))
+
 print('\nNone\n')
