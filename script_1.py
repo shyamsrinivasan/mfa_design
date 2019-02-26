@@ -51,8 +51,8 @@ n_mutants = len(fluxes)
 # number of mutants (# experiments required)
 req_n_mutants = 5
 # pre-calculate sse estimates for different flux pairs
-flux_sse = [calc_sse(fluxes[i], fluxes[j]) for i in range(0, n_mutants-1) for j in range(1, n_mutants) if i != j]
-combo_index = [(i, j) for i in range(0, n_mutants-1) for j in range(1, n_mutants) if i != j]
+flux_sse = [calc_sse(fluxes[i], fluxes[j]) for i in range(0, n_mutants-1) for j in range(i, n_mutants) if i != j]
+combo_index = [(i, j) for i in range(0, n_mutants-1) for j in range(i, n_mutants) if i != j]
 cont_index = [(combo_ind, i_combo_index[0], i_combo_index[1])for combo_ind, i_combo_index in enumerate(combo_index)]
 
 # create empty model
