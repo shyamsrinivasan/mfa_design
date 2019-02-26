@@ -2,6 +2,8 @@
 # problem is MILP where fluxes are known, choices of mutants are integer decision variables
 from gurobipy import *
 import numpy as np
+import pandas as pd
+import os.path
 
 
 def calc_sse(val_1, val_2):
@@ -10,7 +12,41 @@ def calc_sse(val_1, val_2):
     return sse_estimate
 
 
-fluxes = [np.array([1, .5, .5, .5, .5, .5, .5]), np.array([1, 1, 0, 1, 0, 1, 0]), np.array([1, 0, 1, 0, 1, 0, 1])]
+def read_data(file_name, file_type='excel'):
+
+    df = []
+    if file_type == 'excel':
+        # read data from excel file
+        df = pd.read_excel(file_name, sheet_name='Sheet4')
+    elif file_type == 'csv':
+        # read data from csv file
+        df = pd.read_csv(file_name, sep='\t')  # , lineterminator='\r\n')
+
+    # non-mutant column names (excel): Abbreviation, Description, Reaction, GPR, Lower bound, Upper bound,
+    # Objective, Subsystem
+    # parse data
+    all_column_names = df.columns.values
+    non_mutant_column_names = ['Abbreviation', 'Description', 'Reaction', 'GPR', 'Lower bound', 'Upper bound',
+                               'Objective', 'Subsystem']
+    mutant_column_names = [i_column for i_column in all_column_names if i_column not in non_mutant_column_names]
+
+    # collect mutant flux data
+    mutant_flux = [df[i_mutant].values for i_mutant in mutant_column_names]
+
+    # set all flux values below threshold to zero
+    adjusted_flux = [np.array(list(map(lambda x: 0 if abs(x) < 1e-6 else x, list(i_mutant_flx))))
+                     for i_mutant_flx in mutant_flux]
+    return adjusted_flux, df
+
+
+# read data from excel file
+# file_name = os.path.join(os.getcwd(), 'e_coli_core_flux.xlsx')
+# read data from csv file
+file_name = os.path.join(os.getcwd(), 'pfba_ecoli_core.csv')
+fluxes, _ = read_data(file_name, file_type='csv')
+# rxn_id = flux_df['Abbreviation'].values.tolist()
+
+# fluxes = [np.array([1, .5, .5, .5, .5, .5, .5]), np.array([1, 1, 0, 1, 0, 1, 0]), np.array([1, 0, 1, 0, 1, 0, 1])]
 n_mutants = len(fluxes)
 # number of mutants (# experiments required)
 req_n_mutants = 5
