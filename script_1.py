@@ -4,52 +4,19 @@ from gurobipy import *
 import numpy as np
 import pandas as pd
 import os.path
-
-
-def calc_sse(val_1, val_2):
-    # calculate lsq distance between val_1 and val_2
-    sse_estimate = np.sqrt(np.sum((abs(val_1) - abs(val_2))**2)/len(val_1))
-    return sse_estimate
-
-
-def read_data(file_name, file_type='excel'):
-
-    df = []
-    if file_type == 'excel':
-        # read data from excel file
-        df = pd.read_excel(file_name, sheet_name='Sheet4')
-    elif file_type == 'csv':
-        # read data from csv file
-        df = pd.read_csv(file_name, sep='\t')  # , lineterminator='\r\n')
-
-    # non-mutant column names (excel): Abbreviation, Description, Reaction, GPR, Lower bound, Upper bound,
-    # Objective, Subsystem
-    # parse data
-    all_column_names = df.columns.values
-    non_mutant_column_names = ['Abbreviation', 'Description', 'Reaction', 'GPR', 'Lower bound', 'Upper bound',
-                               'Objective', 'Subsystem']
-    mutant_column_names = [i_column for i_column in all_column_names if i_column not in non_mutant_column_names]
-
-    # collect mutant flux data
-    mutant_flux = [df[i_mutant].values for i_mutant in mutant_column_names]
-
-    # set all flux values below threshold to zero
-    adjusted_flux = [np.array(list(map(lambda x: 0 if abs(x) < 1e-6 else x, list(i_mutant_flx))))
-                     for i_mutant_flx in mutant_flux]
-    return adjusted_flux, df
-
+from input.custom_functions import calc_sse, read_data
 
 # read data from excel file
 # file_name = os.path.join(os.getcwd(), 'e_coli_core_flux.xlsx')
 # read data from csv file
-file_name = os.path.join(os.getcwd(), 'pfba_ecoli_core.csv')
+file_name = os.path.join(os.getcwd(), './output/pfba_ecoli_core_filtered.csv')
 fluxes, _ = read_data(file_name, file_type='csv')
 # rxn_id = flux_df['Abbreviation'].values.tolist()
 
 # fluxes = [np.array([1, .5, .5, .5, .5, .5, .5]), np.array([1, 1, 0, 1, 0, 1, 0]), np.array([1, 0, 1, 0, 1, 0, 1])]
 n_mutants = len(fluxes)
 # number of mutants (# experiments required)
-req_n_mutants = 5
+req_n_mutants = 2
 # pre-calculate sse estimates for different flux pairs
 flux_sse = [calc_sse(fluxes[i], fluxes[j]) for i in range(0, n_mutants-1) for j in range(i, n_mutants) if i != j]
 combo_index = [(i, j) for i in range(0, n_mutants-1) for j in range(i, n_mutants) if i != j]
@@ -84,7 +51,7 @@ m.addConstr(quicksum(mut_select) - req_n_mutants, rhs=0, name="c4", sense=GRB.LE
 m.update()
 
 # Save model to file
-# m.write("example.lp")
+# m.write("./output/example.lp")
 
 # set initial value of first two mutants to 1
 mut_select[0].start = 1

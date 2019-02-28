@@ -1,0 +1,275 @@
+
+Gurobi 7.5.2 (linux64, Python) logging started Wed Feb 27 17:34:12 2019
+
+
+Gurobi 7.5.2 (linux64, Python) logging started Wed Feb 27 17:36:48 2019
+
+Academic license - for non-commercial use only
+Optimize a model with 1999 rows, 703 columns and 4699 nonzeros
+Variable types: 666 continuous, 37 integer (37 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e-14, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 5e+00]
+
+Loaded MIP start with objective 79.9125 (0.02s)
+MIP start did not produce a new incumbent solution
+
+Presolve time: 0.00s
+Presolved: 1999 rows, 703 columns, 4699 nonzeros
+Variable types: 666 continuous, 37 integer (37 binary)
+
+Root relaxation: objective 2.697580e+02, 722 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  269.75799    0   37   79.91249  269.75799   238%     -    0s
+     0     0  269.32099    0   37   79.91249  269.32099   237%     -    0s
+     0     0  267.76306    0   37   79.91249  267.76306   235%     -    0s
+     0     0  266.93241    0   37   79.91249  266.93241   234%     -    0s
+     0     2  266.93241    0   37   79.91249  266.93241   234%     -    0s
+H   68    22                      82.9569963  168.90275   104%   111    0s
+H  140    34                      84.0079473  126.29565  50.3%  91.2    0s
+*  206    31              14      85.4034663  105.34991  23.4%  83.5    0s
+*  285    10               9      85.6010221   95.02818  11.0%  70.8    0s
+
+Cutting planes:
+  Gomory: 3
+
+Explored 303 nodes (21312 simplex iterations) in 0.75 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 5: 85.601 85.4035 84.0079 ... 79.9125
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 8.560102205221e+01, best bound 8.560102205221e+01, gap 0.0000%
+
+Gurobi 7.5.2 (linux64, Python) logging started Wed Feb 27 17:48:37 2019
+
+Academic license - for non-commercial use only
+Optimize a model with 1999 rows, 703 columns and 4699 nonzeros
+Variable types: 666 continuous, 37 integer (37 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e-14, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+
+Loaded MIP start with objective 4.32911e-14 (0.00s)
+MIP start did not produce a new incumbent solution
+
+Presolve time: 0.00s
+Presolved: 1999 rows, 703 columns, 4699 nonzeros
+Variable types: 666 continuous, 37 integer (37 binary)
+
+Root relaxation: objective 1.079032e+02, 748 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  107.90320    0   37    0.00000  107.90320      -     -    0s
+H    0     0                       0.8631007  107.90320      -     -    0s
+H    0     0                       8.7370631  107.90320  1135%     -    0s
+     0     0  107.36496    0   37    8.73706  107.36496  1129%     -    0s
+     0     0  106.86188    0   37    8.73706  106.86188  1123%     -    0s
+H    0     0                       9.8966778  106.86188   980%     -    0s
+     0     0  106.06262    0   37    9.89668  106.06262   972%     -    0s
+H    0     2                      10.2457436  106.06262   935%     -    0s
+     0     2  106.06262    0   37   10.24574  106.06262   935%     -    0s
+*    6     6               2      14.2707617   50.38098   253%   183    0s
+
+Cutting planes:
+  Gomory: 3
+
+Explored 62 nodes (5791 simplex iterations) in 0.21 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 6: 14.2708 10.2457 9.89668 ... 4.32911e-14
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.427076165644e+01, best bound 1.427076165644e+01, gap 0.0000%
+
+Gurobi 7.5.2 (linux64, Python) logging started Wed Feb 27 17:49:44 2019
+
+Academic license - for non-commercial use only
+Optimize a model with 1999 rows, 703 columns and 4699 nonzeros
+Variable types: 666 continuous, 37 integer (37 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e-14, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+
+Loaded MIP start with objective 4.32911e-14 (0.00s)
+MIP start did not produce a new incumbent solution
+
+Presolve time: 0.00s
+Presolved: 1999 rows, 703 columns, 4699 nonzeros
+Variable types: 666 continuous, 37 integer (37 binary)
+
+Root relaxation: objective 1.079032e+02, 748 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  107.90320    0   37    0.00000  107.90320      -     -    0s
+H    0     0                       0.8631007  107.90320      -     -    0s
+H    0     0                       8.7370631  107.90320  1135%     -    0s
+     0     0  107.36496    0   37    8.73706  107.36496  1129%     -    0s
+     0     0  106.86188    0   37    8.73706  106.86188  1123%     -    0s
+H    0     0                       9.8966778  106.86188   980%     -    0s
+     0     0  106.06262    0   37    9.89668  106.06262   972%     -    0s
+H    0     2                      10.2457436  106.06262   935%     -    0s
+     0     2  106.06262    0   37   10.24574  106.06262   935%     -    0s
+*    6     6               2      14.2707617   50.38098   253%   183    0s
+
+Cutting planes:
+  Gomory: 3
+
+Explored 62 nodes (5791 simplex iterations) in 0.19 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 6: 14.2708 10.2457 9.89668 ... 4.32911e-14
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.427076165644e+01, best bound 1.427076165644e+01, gap 0.0000%
+
+Gurobi 7.5.2 (linux64, Python) logging started Wed Feb 27 17:50:27 2019
+
+Academic license - for non-commercial use only
+Optimize a model with 1999 rows, 703 columns and 4699 nonzeros
+Variable types: 666 continuous, 37 integer (37 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e-14, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+
+Loaded MIP start with objective 4.32911e-14 (0.00s)
+MIP start did not produce a new incumbent solution
+
+Presolve time: 0.00s
+Presolved: 1999 rows, 703 columns, 4699 nonzeros
+Variable types: 666 continuous, 37 integer (37 binary)
+
+Root relaxation: objective 1.079032e+02, 748 iterations, 0.01 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  107.90320    0   37    0.00000  107.90320      -     -    0s
+H    0     0                       0.8631007  107.90320      -     -    0s
+H    0     0                       8.7370631  107.90320  1135%     -    0s
+     0     0  107.36496    0   37    8.73706  107.36496  1129%     -    0s
+     0     0  106.86188    0   37    8.73706  106.86188  1123%     -    0s
+H    0     0                       9.8966778  106.86188   980%     -    0s
+     0     0  106.06262    0   37    9.89668  106.06262   972%     -    0s
+H    0     2                      10.2457436  106.06262   935%     -    0s
+     0     2  106.06262    0   37   10.24574  106.06262   935%     -    0s
+*    6     6               2      14.2707617   50.38098   253%   183    0s
+
+Cutting planes:
+  Gomory: 3
+
+Explored 62 nodes (5791 simplex iterations) in 0.19 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 6: 14.2708 10.2457 9.89668 ... 4.32911e-14
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.427076165644e+01, best bound 1.427076165644e+01, gap 0.0000%
+
+Gurobi 7.5.2 (linux64, Python) logging started Thu Feb 28 14:57:06 2019
+
+Academic license - for non-commercial use only
+Optimize a model with 2110 rows, 741 columns and 4959 nonzeros
+Variable types: 703 continuous, 38 integer (38 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [9e-15, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+
+Loaded MIP start with objective 5.28355e-14 (0.03s)
+MIP start did not produce a new incumbent solution
+
+Presolve time: 0.01s
+Presolved: 2110 rows, 741 columns, 4959 nonzeros
+Variable types: 703 continuous, 38 integer (38 binary)
+
+Root relaxation: objective 1.084625e+02, 789 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  108.46246    0   38    0.00000  108.46246      -     -    0s
+H    0     0                       5.7499831  108.46246  1786%     -    0s
+H    0     0                       8.7370631  108.46246  1141%     -    0s
+H    0     0                       9.7802808  108.46246  1009%     -    0s
+     0     0  108.24465    0   38    9.78028  108.24465  1007%     -    0s
+H    0     0                      10.0111359  108.24465   981%     -    0s
+     0     0  107.48545    0   38   10.01114  107.48545   974%     -    0s
+     0     0  107.18535    0   38   10.01114  107.18535   971%     -    0s
+H    0     0                      10.2457436  107.18535   946%     -    0s
+     0     2  107.18535    0   38   10.24574  107.18535   946%     -    0s
+*    6     6               2      14.2707617   52.59559   269%   234    0s
+
+Cutting planes:
+  Gomory: 3
+
+Explored 69 nodes (6686 simplex iterations) in 0.31 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 7: 14.2708 10.2457 10.0111 ... 5.28355e-14
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.427076165644e+01, best bound 1.427076165644e+01, gap 0.0000%
+
+Gurobi 7.5.2 (linux64, Python) logging started Thu Feb 28 14:59:29 2019
+
+Academic license - for non-commercial use only
+Optimize a model with 274 rows, 105 columns and 651 nonzeros
+Variable types: 91 continuous, 14 integer (14 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [2e-01, 1e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+
+Loaded MIP start with objective 1.40591 (0.00s)
+MIP start did not produce a new incumbent solution
+
+Presolve time: 0.00s
+Presolved: 274 rows, 105 columns, 651 nonzeros
+Variable types: 91 continuous, 14 integer (14 binary)
+
+Root relaxation: objective 5.709665e+01, 123 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   57.09665    0   14    1.40591   57.09665  3961%     -    0s
+H    0     0                      10.2705651   57.09665   456%     -    0s
+     0     0   56.51373    0   14   10.27057   56.51373   450%     -    0s
+     0     0   54.38701    0   14   10.27057   54.38701   430%     -    0s
+H    0     0                      10.3573736   54.38701   425%     -    0s
+     0     0   52.70221    0   14   10.35737   52.70221   409%     -    0s
+     0     0   52.70171    0   14   10.35737   52.70171   409%     -    0s
+H    0     0                      14.2707617   52.70171   269%     -    0s
+     0     0   52.69683    0   14   14.27076   52.69683   269%     -    0s
+     0     0   40.19715    0   14   14.27076   40.19715   182%     -    0s
+     0     2   40.19715    0   14   14.27076   40.19715   182%     -    0s
+
+Cutting planes:
+  Gomory: 3
+  Flow cover: 2
+
+Explored 37 nodes (809 simplex iterations) in 0.02 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 4: 14.2708 10.3574 10.2706 1.40591 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.427076165644e+01, best bound 1.427076165644e+01, gap 0.0000%
