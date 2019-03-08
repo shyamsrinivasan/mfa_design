@@ -12,6 +12,7 @@ following mutants are excluded:<br>
 3. Essential reactions in silico
 4. Reactions without associated genes
 5. Redundant mutants determined by their flux vectors being identical (sum pairwise < 1e-6)
+6. Reactions with zero flux (determined by FVA)
 
 In the second step, MILP formulation is used to determine the optimal set of mutants. Alternative solutions can be found with 
 integer cut by setting the "number of solutions" parameter.<br>
